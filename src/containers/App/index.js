@@ -6,25 +6,25 @@ import { SideMenu } from "../../components";
 import { NewRegister, Status, ListPeopleRegister } from "../../containers";
 import { Container, ContainerItems } from "./style";
 
+function App({path}) {
 
-function App(props) {
-  const { path } = props; // Acesso direto à propriedade path
-console.log(path)
   return (
     <Container>
-      <SideMenu  path={path} />
+      <SideMenu path={path} />
 
       <ContainerItems>
-        {path === paths.Cadastro && <NewRegister />}
-        {path === paths.ListRegisters && <ListPeopleRegister />}
-        {path === paths.Status && <Status />}
+        {path === paths.Cadastro && <NewRegister path={paths.Cadastro} />}
+        {path === paths.ListRegisters && (
+          <ListPeopleRegister path={paths.ListRegisters} />
+        )}
+        {path === paths.Status && <Status path={paths.Status} />}
       </ContainerItems>
     </Container>
   );
 }
 
 App.propTypes = {
-  props: PropTypes.string, // Certifique-se de que a prop path seja do tipo string
+  path: PropTypes.string, // Certifique-se de que a prop path seja do tipo string
 };
 
-export default App
+export default App;

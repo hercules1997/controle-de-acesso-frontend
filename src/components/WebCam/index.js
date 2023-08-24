@@ -25,10 +25,10 @@ export const WebCam = () => {
 
   return (
     <div className="camera-container">
-      <h1>Camera Capture App</h1>
+      <h1>Câmera</h1>
       {!showCamera ? (
         <button onClick={openCamera} className="open-camera-button">
-          Open Camera
+          Abrir Câmera
         </button>
       ) : (
         <div>
@@ -40,10 +40,10 @@ export const WebCam = () => {
           />
           <div>
             <button onClick={captureImage} className="capture-button">
-              Capture Image
+              Tire a foto
             </button>
             <button onClick={closeCamera} className="close-camera-button">
-              Close Camera
+              Fechar Camera
             </button>
           </div>
           {capturedImage && (

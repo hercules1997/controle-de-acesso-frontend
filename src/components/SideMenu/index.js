@@ -15,7 +15,8 @@ import {
   ContainerLogout,
 } from "./style";
 
-export function SideMenu({ path }) {
+export function SideMenu({path}) {
+
   const { logout } = useUser();
   const navigate = useNavigate();
 
@@ -28,7 +29,7 @@ export function SideMenu({ path }) {
       <hr className="hr"></hr>
       {listLinks.map((item) => (
         <ContainerItems key={item.id}>
-          <ListLink to={item.link} isactive={path === item.link}>
+          <ListLink to={item.link} isActive={path === item.link}>
             <item.icon className="icon" to={item.link} />
             {item.label}
           </ListLink>

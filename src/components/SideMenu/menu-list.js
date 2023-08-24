@@ -1,27 +1,26 @@
-import { ShoppingBag } from '@mui/icons-material'
-import HomeIcon from '@mui/icons-material/Home'
-import ListAltIcon from '@mui/icons-material/ListAlt'
-
-import paths from '../../constants'
+import HourglassBottomIcon from "@mui/icons-material/HourglassBottom";
+import GroupAddIcon from "@mui/icons-material/GroupAdd";
+import RecentActorsIcon from "@mui/icons-material/RecentActors";
+import paths from "../../constants";
 const listLinks = [
   {
     id: 1,
-    label: 'Novo Cadastro',
+    label: "Novo Cadastro",
     link: paths.Cadastro,
-    icon: HomeIcon
+    icon: GroupAddIcon,
   },
   {
     id: 2,
-    label: 'Pessoas Cadastradas',
+    label: "Pessoas Cadastradas",
     link: paths.ListRegisters,
-    icon: ShoppingBag
+    icon: RecentActorsIcon,
   },
   {
     id: 3,
-    label: 'Status de visitas',
+    label: "Status de visitas",
     link: paths.Status,
-    icon: ListAltIcon
-  }
-]
+    icon: HourglassBottomIcon,
+  },
+];
 
-export default listLinks
+export default listLinks;

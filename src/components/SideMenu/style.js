@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 export const ContainerMenu = styled.div`
   flex-direction: column;
-  position: fixed;
-  width: 280px;
+  /* position: fixed; */
+  width: 20%;
   color: white;
 
   min-height: 100vh;
@@ -47,7 +47,7 @@ export const ListLink = styled(Link)`
 
   border-radius: 6px;
   align-items: center;
-  background-color: ${(props) => (props.isactive ? "#fa9600" : "none")};
+  background-color: ${(props) => (props.isActive ? "#fa9600" : "none")};
   transition: 1s;
   .icon {
     margin-right: 15px;

@@ -1,11 +1,13 @@
 import React from "react";
 
-import { Container } from "./style";
+import { Container, ContainerMaster, Items } from "./style";
 
-export function Login() {
+export function Status() {
   return (
     <Container>
-      <h1>Sou o Login</h1>
+      <ContainerMaster>
+        <Items>Jão Neves</Items>
+      </ContainerMaster>
     </Container>
   );
 }

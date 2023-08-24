@@ -1,7 +1,7 @@
 const paths = {
   Status: "/status",
   Cadastro: "/novo-cadastro",
-  ListRegisters: "/"
+  ListRegisters: "/lista"
 };
 
 export default paths;
