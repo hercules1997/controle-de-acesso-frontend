@@ -1,18 +1,17 @@
-/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 
-import logo from "../../assets/logo.png";
-export const PopUp = ({ isOpen, onClose }) => {
+export const PopUp = ({ isOpen, onConfirm, onCancel }) => {
   if (!isOpen) return null;
 
   return (
     <div className="popup">
       <div className="popup-content">
-        <button onClick={onClose}>Fechar</button>
-        {/* Conteúdo do pop-up */}
-        <p>asdfadsfasdfasdfasdf</p>
-        <img src={logo} />
+        <p>Deseja confirmar a ação?</p>
+        <button onClick={onCancel}>Não</button>
+        <button onClick={onConfirm}>Sim</button>
       </div>
     </div>
   );
 };
+
+

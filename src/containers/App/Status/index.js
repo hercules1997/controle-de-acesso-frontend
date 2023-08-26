@@ -21,9 +21,26 @@ export function Status() {
   const closePopup = () => {
     setIsPopupOpen(false);
   };
+
+  const handleConfirm = () => {
+    // Lógica a ser executada quando o usuário confirma
+    console.log("Ação confirmada!");
+    closePopup(); // Feche o pop-up após a confirmação
+  };
+
+  const handleCancel = () => {
+    // Lógica a ser executada quando o usuário cancela
+    console.log("Ação cancelada!");
+    closePopup(); // Feche o pop-up após o cancelamento
+  };
   return (
     <Container>
-      <PopUpStyle isOpen={isPopupOpen} onClose={closePopup} />
+      <PopUpStyle
+        isOpen={isPopupOpen}
+        onClose={closePopup}
+        onConfirm={handleConfirm}
+        onCancel={handleCancel}
+      />
 
       <ContainerList>
         <List>
