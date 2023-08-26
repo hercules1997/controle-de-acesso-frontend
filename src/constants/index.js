@@ -1,5 +1,5 @@
 const paths = {
-  Status: "/status",
+  Status: "/",
   Cadastro: "/novo-cadastro",
   ListRegisters: "/lista"
 };

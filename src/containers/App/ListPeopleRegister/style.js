@@ -1,19 +1,119 @@
 import styled from "styled-components";
-import PersonIcon from "@mui/icons-material/Person";
 
 export const Container = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-`;
-
-export const ContainerMaster = styled.div`
-
-`;
-export const Items = styled.li`
+  width: 100%;
+  min-height: 100vh;
   display: flex;
-  width: 80%;
-  padding: 40px;
-`
+  flex-direction: column;
+  align-items: center;
 
-export const PersonIconStyle = styled(PersonIcon)``;
+  padding: 40px;
+`;
+export const ContainerList = styled.div`
+  border: 1px solid #404040;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  margin-bottom: 15px;
+  background: #262624;
+  box-shadow: 0px 0px 10px #000;
+  /* background-color: ${(props) => (props.status ? "green" : "#262626")}; */
+`;
+export const List = styled.div`
+  width: 100%;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+`;
+export const Image = styled.div`
+  display: flex;
+  width: 7%;
+  img {
+    width: 60px;
+    border-radius: 50%;
+  }
+`;
+export const Description = styled.div`
+  width: 53%;
+  color: #ffff;
+  display: flexbox;
+  justify-content: center;
+  text-align: start;
+  padding-left: 20px;
+`;
+export const Date = styled.div`
+  width: 30%;
+  color: #ffff;
+  display: flexbox;
+  justify-content: center;
+  align-items: center;
+`;
+export const ButtonFinaly = styled.div`
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    color: #ffff;
+    background: transparent;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+
+    &:hover {
+      background: #333;
+    }
+    &:active {
+      opacity: 0.5;
+    }
+  }
+`;
+
+export const CardListPeople = styled.div`
+  width: 70%;
+  display: flex;
+  color: #ffff;
+  flex-direction: column;
+
+  div {
+    display: flex;
+    margin-top: 5px;
+  }
+`;
+export const LabelList = styled.label`
+  color: #909090;
+  font-weight: bold;
+  margin-right: 5px;
+`;
+export const InforList = styled.p``;
+export const CardHistory = styled.div`
+  width: 30%;
+  border-left: 0.3px solid #555;
+  color: #909090;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  span {
+    font-weight: bold;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  p {
+    color: #fff;
+    padding-left: 15px;
+    margin-top: 5px;
+    font-style: italic;
+  }
+`;
+export const CardContainer = styled.div`
+  display: flex;
+  width: 100%;
+  border-top: 0.3px solid #555;
+  margin-top: 20px;
+`;

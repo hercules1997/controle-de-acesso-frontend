@@ -1,56 +1,75 @@
 import styled from "styled-components";
 import PersonIcon from "@mui/icons-material/Person";
-
+import { Button } from "../../../components";
+import { Input } from "../../../components/Input";
 export const Container = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const ContainerMaster = styled.div`
-
+  margin-left: 20%;
+  h2 {
+    margin-bottom: 50px;
+  }
 `;
+export const InputStyle = styled(Input)`
+  border: ${(props) => (props.error ? "2px solid red" : "none")};
+`;
+export const LabelTitle = styled.label`
+  text-align: start;
+  width: 100%;
+  padding-left: 25px;
+  span {
+    color: red;
+  }
+`;
+
 export const Items = styled.div`
   display: flex;
-  width: 80%;
   padding: 40px;
 
-  fieldset {
+  form {
     display: flex;
     flex-direction: column;
-    position: relative;
-    background-color: #808080;
+
+    background-color: #262624;
     padding: 50px;
-    justify-content: space-around;
     align-items: center;
+    justify-content: space-around;
+
     width: 100%;
-    border: none;
-    box-shadow: 0 1px 28px #808080;
+    color: #ffff;
+    border: 0.2px solid #4a4646;
+    box-shadow: 0 1px 8px #000;
     border-radius: 15px;
   }
 
   input {
-    width: 600px;
-    margin: 15px;
-    border: none;
-    padding: 10px;
-    box-shadow: 0 1px 28px #808080;
-    border-radius: 15px;
-    outline: none;
-
-    &:focus {
-      border: 1px solid #f5ae33;
-    }
   }
 
   button {
-    width: 600px;
+    width: 650px;
     border: none;
-    color: red;
+
     font-size: 1.4rem;
     cursor: pointer;
   }
-`
+`;
 
 export const PersonIconStyle = styled(PersonIcon)``;
+export const ButtonSubmit = styled(Button)`
+  width: 650px;
+  border: none;
+  background: #404040;
+  font-size: 1.4rem;
+  cursor: pointer;
+
+  &:hover {
+    background: #505050;
+  }
+  &:active {
+    opacity: 0.4 !important;
+  }
+`;

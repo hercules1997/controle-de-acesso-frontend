@@ -1,12 +1,14 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import { CartProvider } from './CartContext'
+import { ContactProvider } from './ContactContext'
 import { UserProvider } from './UserContext'
+
+// PASSANDO PROPS DAS FUNÇÕES TORNANDO ELAS DISPONIVEL PARA APLICAÇÃO TODA
 
 const AppProvider = ({ children }) => (
   <UserProvider>
-    <CartProvider>{children}</CartProvider>
+    <ContactProvider>{children}</ContactProvider>
   </UserProvider>
 )
 

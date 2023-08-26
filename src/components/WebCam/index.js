@@ -1,7 +1,16 @@
 import React, { useRef, useState } from "react";
-import Webcam from "react-webcam";
-import "./CameraCapture.css"; // Importar seu arquivo de estilos CSS
 
+// import CancelSharpIcon from "@mui/icons-material/CancelSharp";
+import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
+import {
+  ButtonCapture,
+  // ButtonCloseCam,
+  ContainerItems,
+  ContainerWebCam,
+  ImageCapture,
+  ButtonOpenCam,
+  WebcamStyle,
+} from "./style";
 export const WebCam = () => {
   const webcamRef = useRef(null);
   const [capturedImage, setCapturedImage] = useState(null);
@@ -11,50 +20,55 @@ export const WebCam = () => {
     setShowCamera(true);
   };
 
-  const closeCamera = () => {
-    setShowCamera(false);
-    setCapturedImage(null);
-  };
+  // const closeCamera = () => {
+  //   setCapturedImage(null);
+  //   setShowCamera(false);
+  // };
 
   const captureImage = () => {
     if (webcamRef.current) {
       const imageSrc = webcamRef.current.getScreenshot();
       setCapturedImage(imageSrc);
     }
+
   };
 
   return (
-    <div className="camera-container">
-      <h1>Câmera</h1>
+    <ContainerItems >
       {!showCamera ? (
-        <button onClick={openCamera} className="open-camera-button">
-          Abrir Câmera
-        </button>
+        <ButtonOpenCam onClick={openCamera} >
+          <AddAPhotoIcon />
+        </ButtonOpenCam>
       ) : (
-        <div>
-          <Webcam
+        <ContainerWebCam>
+          <WebcamStyle
             audio={false}
             ref={webcamRef}
             screenshotFormat="image/jpeg"
-            className="webcam"
           />
-          <div>
-            <button onClick={captureImage} className="capture-button">
-              Tire a foto
-            </button>
-            <button onClick={closeCamera} className="close-camera-button">
-              Fechar Camera
-            </button>
-          </div>
+          <ContainerWebCam>
+            <ButtonCapture
+              onClick={(() => captureImage())}
+         
+            >
+              Tirar foto
+            </ButtonCapture>
+            {/* <ButtonCloseCam
+              onClick={() => closeCamera()}
+              className="close-camera-button"
+            >
+              <CancelSharpIcon />
+            </ButtonCloseCam> */}
+          </ContainerWebCam>
           {capturedImage && (
-            <img
+            <ImageCapture
               src={capturedImage}
               alt="Captured"
-              className="captured-image"
+    
             />
           )}
-        </div>
+        </ContainerWebCam>
       )}
-    </div>
+    </ContainerItems>
   );
 };

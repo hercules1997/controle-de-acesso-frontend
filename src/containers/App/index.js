@@ -2,15 +2,15 @@ import PropTypes from "prop-types";
 import React from "react";
 
 import paths from "../../constants";
-import { SideMenu } from "../../components";
+
 import { NewRegister, Status, ListPeopleRegister } from "../../containers";
-import { Container, ContainerItems } from "./style";
+import { Container, ContainerItems, SideMenuStyle } from "./style";
 
 function App({path}) {
 
   return (
     <Container>
-      <SideMenu path={path} />
+      <SideMenuStyle path={path} />
 
       <ContainerItems>
         {path === paths.Cadastro && <NewRegister path={paths.Cadastro} />}
