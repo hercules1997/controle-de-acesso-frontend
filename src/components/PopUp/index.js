@@ -1,17 +1,21 @@
 import React from "react";
-
+import { ContainerPopUp, CardPopUp } from "./style.js";
 export const PopUp = ({ isOpen, onConfirm, onCancel }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="popup">
-      <div className="popup-content">
-        <p>Deseja confirmar a ação?</p>
-        <button onClick={onCancel}>Não</button>
-        <button onClick={onConfirm}>Sim</button>
-      </div>
-    </div>
+    <ContainerPopUp className="popup">
+      <CardPopUp className="popup-content">
+        <h3>ATENÇÃO!</h3>
+        <p>
+          Deseja finaliza a visita?
+          <span> *Verifique se foi entregue o crachá!*</span>
+        </p>
+        <span>
+          <button onClick={onCancel}>Não</button>
+          <button onClick={onConfirm}>Sim</button>
+        </span>
+      </CardPopUp>
+    </ContainerPopUp>
   );
 };
-
-
