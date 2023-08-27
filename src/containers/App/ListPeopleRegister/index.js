@@ -15,7 +15,6 @@ import {
   InforList,
   LabelList,
   List,
-  StyledBox,
 } from "./style";
 
 export function ListPeopleRegister() {
