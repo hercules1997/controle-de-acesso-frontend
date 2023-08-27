@@ -6,6 +6,7 @@ export const ContainerMenu = styled.div`
   position: fixed;
   width: 280px;
   color: white;
+  z-index: 100;
   border-right: 0.2px solid #4a4646;
   min-height: 100vh;
   padding: 70px 45px 70px 15px;

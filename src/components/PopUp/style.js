@@ -8,9 +8,11 @@ const ContainerPopUp = styled.div`
   height: 100%;
   background-color: rgba(0, 0, 0, 0.651);
   /* Fundo escurecido */
+  backdrop-filter: blur(8px);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 `;
 const CardPopUp = styled.div`
   background-color: #262626;
@@ -54,7 +56,7 @@ const CardPopUp = styled.div`
       background: red;
     }
     &:nth-child(2) {
-      background: greenyellow;
+      background: green;
       color: #000;
     }
 

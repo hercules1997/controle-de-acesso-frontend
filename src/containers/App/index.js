@@ -6,10 +6,10 @@ import paths from "../../constants";
 import { NewRegister, Status, ListPeopleRegister } from "../../containers";
 import { Container, ContainerItems, SideMenuStyle } from "./style";
 
-function App({path}) {
-
+function App({ path }) {
   return (
     <Container>
+    
       <SideMenuStyle path={path} />
 
       <ContainerItems>

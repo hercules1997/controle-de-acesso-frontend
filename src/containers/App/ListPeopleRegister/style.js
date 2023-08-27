@@ -1,12 +1,20 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 export const Container = styled.div`
   width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-
   padding: 40px;
 `;
 export const ContainerList = styled.div`
@@ -17,12 +25,25 @@ export const ContainerList = styled.div`
   margin-bottom: 15px;
   background: #262624;
   box-shadow: 0px 0px 10px #000;
-  /* background-color: ${(props) => (props.status ? "green" : "#262626")}; */
+  transition: top 2s ease;
+  animation: ${fadeIn} 1s ease;
+
+  .menu {
+    display: none;
+    animation: ${fadeIn} 1s ease;
+    transition: top 2s ease;
+  }
+  .menu.open {
+    display: flex;
+    animation: ${fadeIn} 1s ease;
+    transition: top 2s ease;
+    top: 0;
+  }
 `;
 export const List = styled.div`
   width: 100%;
   display: flex;
-
+  transition: 2s;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -63,6 +84,7 @@ export const ButtonFinaly = styled.div`
     padding: 10px;
     border-radius: 8px;
     cursor: pointer;
+    transition: 1s;
 
     &:hover {
       background: #333;
@@ -78,7 +100,7 @@ export const CardListPeople = styled.div`
   display: flex;
   color: #ffff;
   flex-direction: column;
-
+  transition: 2s;
   div {
     display: flex;
     margin-top: 5px;
@@ -111,9 +133,13 @@ export const CardHistory = styled.div`
     font-style: italic;
   }
 `;
+
 export const CardContainer = styled.div`
   display: flex;
   width: 100%;
   border-top: 0.3px solid #555;
   margin-top: 20px;
+  transition: 2s ease;
+  opacity: ${(prop) => (prop.isVisible ? "1" : "0")};
+  animation: ${fadeIn} 1s ease;
 `;
