@@ -5,6 +5,7 @@ import PersonSearchIcon from "@mui/icons-material/PersonSearch";
 
 import avatar1 from "../../../assets/avatar1.jpg";
 import avatar2 from "../../../assets/avatar2.jpg";
+import avatar3 from "../../../assets/avatar3.jpg";
 
 import {
   ButtonFinaly,
@@ -96,7 +97,7 @@ export function ListPeopleRegister() {
         <ContainerList>
           <List>
             <Image>
-              <img src={avatar1} />
+              <img src={avatar3} />
             </Image>
             <Description>
               <p>Reginalda da Misericórdia</p>
