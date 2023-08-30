@@ -30,6 +30,7 @@ export function NewRegister() {
     rg: Yup.number().required("RG obrigatório").min(10),
     cpf: Yup.number().required("CPF é obrigatório").min(11),
     cep: Yup.number().required("CEP é obrigatório").min(8),
+    phone: Yup.number().required("Telefone é obrigatório").min(11),
     address: Yup.string().required("Endereço obrigatório"),
     nameMon: Yup.string().required("Nome da mãe obrigatório"),
     nameDad: Yup.string().required("Nome do pai obrigatório"),
@@ -114,6 +115,15 @@ export function NewRegister() {
             ></Input>
             <ErrorMessage>{errors.cep?.message}</ErrorMessage>
             <LabelTitle>
+              Logadouro <span>*</span>
+            </LabelTitle>
+            <Input
+              type="text"
+              {...register("address")}
+              placeholder="Ex: Rua Tadeu de Brito"
+            ></Input>
+            <ErrorMessage>{errors.address?.message}</ErrorMessage>
+            <LabelTitle>
               Tel <span>*</span>
             </LabelTitle>
             <Input
@@ -146,7 +156,7 @@ export function NewRegister() {
               Foto <span>*</span>
             </LabelTitle>
             <WebCam />
-            <ButtonSubmit type="submit">Enviar</ButtonSubmit>
+            <ButtonSubmit>Enviar</ButtonSubmit>
           </form>
         </Items>
       </ContainerMaster>

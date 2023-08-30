@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { SideMenu } from "../../components";
 export const Container = styled.div`
-  background: #292929;
+  background: #505050;
   width: 100%;
   display: flex;
 

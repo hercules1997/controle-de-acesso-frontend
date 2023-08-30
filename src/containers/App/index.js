@@ -3,13 +3,18 @@ import React from "react";
 
 import paths from "../../constants";
 
-import { NewRegister, Status, ListPeopleRegister } from "../../containers";
+import {
+  NewRegister,
+  Status,
+  ListPeopleRegister,
+  Deshboard,
+} from "../../containers";
 import { Container, ContainerItems, SideMenuStyle } from "./style";
+// import DashboardAdmin from "./DashboardAdmin";
 
 function App({ path }) {
   return (
     <Container>
-    
       <SideMenuStyle path={path} />
 
       <ContainerItems>
@@ -18,6 +23,7 @@ function App({ path }) {
           <ListPeopleRegister path={paths.ListRegisters} />
         )}
         {path === paths.Status && <Status path={paths.Status} />}
+        {path === paths.Deshboard && <Deshboard path={paths.Deshboard} />}
       </ContainerItems>
     </Container>
   );

@@ -21,6 +21,12 @@ const listLinks = [
     link: paths.Status,
     icon: HourglassBottomIcon,
   },
+  {
+    id: 4,
+    label: "Deshboard",
+    link: paths.Deshboard,
+    icon: HourglassBottomIcon,
+  },
 ];
 
 export default listLinks;

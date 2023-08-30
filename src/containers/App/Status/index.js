@@ -21,6 +21,7 @@ export function Status() {
   const closePopup = () => {
     setIsPopupOpen(false);
   };
+ 
 
   const handleConfirm = () => {
     // Lógica a ser executada quando o usuário confirma
@@ -48,7 +49,6 @@ export function Status() {
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_93-Y6mBxJ4jBbxM69Pdrgww5apgF2ZVXnw&usqp=CAU" />
           </Image>
           <Description>
-            <p>Carlos Antônio</p>
           </Description>
           <Date>
             <p>Seg 22 - 13:30h</p>

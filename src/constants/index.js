@@ -1,6 +1,7 @@
 const paths = {
   Status: "/",
   Cadastro: "/novo-cadastro",
+  Deshboard: "/desh",
   ListRegisters: "/lista"
 };
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ComponentButton = styled.button`
+const ComponentButton = styled.button`
   background-color: #fa9600;
   height: 45px;
 
@@ -23,4 +23,6 @@ export const ComponentButton = styled.button`
   &:active {
     opacity: 0.6;
   }
+
 `
+export { ComponentButton }

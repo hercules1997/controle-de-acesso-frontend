@@ -30,13 +30,12 @@ export const WebCam = () => {
       const imageSrc = webcamRef.current.getScreenshot();
       setCapturedImage(imageSrc);
     }
-
   };
 
   return (
-    <ContainerItems >
+    <ContainerItems>
       {!showCamera ? (
-        <ButtonOpenCam onClick={openCamera} >
+        <ButtonOpenCam onClick={openCamera}>
           <AddAPhotoIcon />
         </ButtonOpenCam>
       ) : (
@@ -47,12 +46,7 @@ export const WebCam = () => {
             screenshotFormat="image/jpeg"
           />
           <ContainerWebCam>
-            <ButtonCapture
-              onClick={(() => captureImage())}
-         
-            >
-              Tirar foto
-            </ButtonCapture>
+            <ButtonCapture onClick={captureImage}>Tirar foto</ButtonCapture>
             {/* <ButtonCloseCam
               onClick={() => closeCamera()}
               className="close-camera-button"
@@ -60,13 +54,7 @@ export const WebCam = () => {
               <CancelSharpIcon />
             </ButtonCloseCam> */}
           </ContainerWebCam>
-          {capturedImage && (
-            <ImageCapture
-              src={capturedImage}
-              alt="Captured"
-    
-            />
-          )}
+          {capturedImage && <ImageCapture src={capturedImage} alt="Captured" />}
         </ContainerWebCam>
       )}
     </ContainerItems>
