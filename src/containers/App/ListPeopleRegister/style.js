@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-
+import { Button, Input } from "../../../components";
 
 const fadeIn = keyframes`
   from {
@@ -16,6 +16,17 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 40px;
+`;
+export const InputStyle = styled(Input)`
+  width: 100%;
+  height: 50px;
+`;
+export const ButtonStyle = styled(Button)`
+  margin: 0;
+  position: absolute;
+  right: 10px;
+  width: 40px;
+  height: 50px;
 `;
 export const ContainerList = styled.div`
   border: 1px solid #404040;
@@ -47,6 +58,18 @@ export const List = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
+
+
+  .search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    justify-self: center;
+    width: 100%;
+    position: relative;
+    height: 50px;
+  }
 `;
 export const Image = styled.div`
   display: flex;

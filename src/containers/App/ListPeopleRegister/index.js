@@ -1,7 +1,11 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from "react";
-
 import KeyboardDoubleArrowDownSharpIcon from "@mui/icons-material/KeyboardDoubleArrowDownSharp";
+import PersonSearchIcon from "@mui/icons-material/PersonSearch";
+
+import avatar1 from "../../../assets/avatar1.jpg";
+import avatar2 from "../../../assets/avatar2.jpg";
+
 import {
   ButtonFinaly,
   CardContainer,
@@ -15,6 +19,8 @@ import {
   InforList,
   LabelList,
   List,
+  InputStyle,
+  ButtonStyle,
 } from "./style";
 
 export function ListPeopleRegister() {
@@ -41,8 +47,20 @@ export function ListPeopleRegister() {
       <Container>
         <ContainerList>
           <List>
+            <div className="search">
+              <LabelList>Pesuisar</LabelList>
+              <InputStyle></InputStyle>
+              <ButtonStyle>
+                <PersonSearchIcon />
+              </ButtonStyle>
+            </div>
+          </List>
+        </ContainerList>
+
+        <ContainerList>
+          <List>
             <Image>
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_93-Y6mBxJ4jBbxM69Pdrgww5apgF2ZVXnw&usqp=CAU" />
+              <img src={avatar2} />
             </Image>
             <Description>
               <p>Carlos Antônio de Abreu</p>
@@ -60,7 +78,7 @@ export function ListPeopleRegister() {
         <ContainerList>
           <List>
             <Image>
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUswedX1gmqd6j5eKSWyhmDjtqj86UqVtnlh-k64nikkm99ujh1kMUOMNxcdT-berJUDU&usqp=CAU" />
+              <img src={avatar1} />
             </Image>
             <Description>
               <p>Júlia Massaratti Tomaski</p>
@@ -78,7 +96,7 @@ export function ListPeopleRegister() {
         <ContainerList>
           <List>
             <Image>
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUswedX1gmqd6j5eKSWyhmDjtqj86UqVtnlh-k64nikkm99ujh1kMUOMNxcdT-berJUDU&usqp=CAU" />
+              <img src={avatar1} />
             </Image>
             <Description>
               <p>Reginalda da Misericórdia</p>
