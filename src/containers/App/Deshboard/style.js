@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
-
-
+import { colors } from "../../../styles/globalStyles";
+import { Chart } from "react-google-charts";
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -11,33 +11,56 @@ const fadeIn = keyframes`
 `;
 export const Container = styled.div`
   width: 100%;
+  background: ${colors.background};
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 40px;
+
+  .grafico_Container {
+    display: flex;
+
+
+    .grafico1 {
+      display: flex;
+      width: 40%;
+    }
+    .grafico2 {
+      display: flex;
+      width: 60%;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+  }
 `;
 export const ContainerList = styled.div`
-  border: 1px solid #404040;
+  border: 1px solid #707070;
   padding: 20px;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  gap: 25px;
   border-radius: 8px;
   width: 100%;
-  margin-bottom: 15px;
-  background: #262624;
+  background: #606060;
   box-shadow: 0px 0px 10px #000;
   transition: top 2s ease;
   animation: ${fadeIn} 1s ease;
 
-  .menu {
-    display: none;
-    animation: ${fadeIn} 1s ease;
-    transition: top 2s ease;
-  }
-  .menu.open {
+  .grafico3 {
     display: flex;
-    animation: ${fadeIn} 1s ease;
-    transition: top 2s ease;
-    top: 0;
+    width: 100%;
+    /* justify-content: space-around; */
+
+    span {
+      font-size: 2rem;
+      background: orange;
+      border-radius: 8px;
+      padding: 5px;
+    }
   }
 `;
 export const List = styled.div`
@@ -142,4 +165,8 @@ export const CardContainer = styled.div`
   transition: 2s ease;
   opacity: ${(prop) => (prop.isVisible ? "1" : "0")};
   animation: ${fadeIn} 1s ease;
+`;
+export const ChartStyle = styled(Chart)`
+  color: red !important;
+  background: green;
 `;

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { colors } from "../../styles/globalStyles";
 
 export const ContainerMenu = styled.div`
   flex-direction: column;
@@ -10,7 +11,7 @@ export const ContainerMenu = styled.div`
   border-right: 0.2px solid #4a4646;
   min-height: 100vh;
   padding: 70px 45px 70px 15px;
-  background-color: #262624;
+  background-color: #353535;
   box-shadow: 0px 0px 10px #000;
 
   span {
@@ -19,7 +20,7 @@ export const ContainerMenu = styled.div`
     align-items: center;
     margin-bottom: 50px;
     img {
-      width: 70px;
+      width: 100px;
     }
   }
 `;
@@ -35,7 +36,7 @@ export const ContainerLogout = styled.button`
   border: none;
   font-size: 17px;
   .iconLogout {
-    color: red;
+    color: ${colors.warning};
     margin-right: 15px;
   }
 `;
@@ -48,7 +49,7 @@ export const ListLink = styled(Link)`
 
   border-radius: 6px;
   align-items: center;
-  background-color: ${(props) => (props.isActive ? "green" : "none")};
+  background: ${(props) => (props.isActive ? "green" : "none")};
   transition: 0ms.5;
   .icon {
     margin-right: 15px;

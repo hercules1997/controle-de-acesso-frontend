@@ -16,8 +16,8 @@ export const ContainerList = styled.div`
   border-radius: 8px;
   width: 100%;
   margin-bottom: 15px;
-  background: #262624;
-  box-shadow: 0px 0px 5px green;
+  background: #404040;
+  box-shadow: 0px 0px 15px #5eb439;
   /* background-color: ${(props) => (props.status ? "green" : "#262626")}; */
 `;
 export const List = styled.div`

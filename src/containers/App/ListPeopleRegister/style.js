@@ -1,5 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import { Button, Input } from "../../../components";
+import { colors } from "../../../styles/globalStyles";
+import { RegisterVisit } from "../../../components/RegisterVisit";
 
 const fadeIn = keyframes`
   from {
@@ -13,6 +15,7 @@ export const Container = styled.div`
   width: 100%;
   min-height: 100vh;
   display: flex;
+  margin-top: 80px;
   flex-direction: column;
   align-items: center;
   padding: 40px;
@@ -28,13 +31,32 @@ export const ButtonStyle = styled(Button)`
   width: 40px;
   height: 50px;
 `;
+export const ButtonRegisterVisit = styled(Button)`
+  background-color: green;
+  border: none;
+  border-radius: 8px;
+  padding: 2px;
+  font-size: 12px;
+  margin-left: 6px;
+  cursor: pointer;
+  color: ${colors.light};
+`;
+
+export const PopUpStyle = styled(RegisterVisit)`
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 1000;
+  justify-content: center;
+`;
 export const ContainerList = styled.div`
   border: 1px solid #404040;
   padding: 20px;
   border-radius: 8px;
   width: 100%;
   margin-bottom: 15px;
-  background: #262624;
+  background: #404040;
   box-shadow: 0px 0px 10px #000;
   transition: top 2s ease;
   animation: ${fadeIn} 1s ease;
@@ -51,6 +73,19 @@ export const ContainerList = styled.div`
     top: 0;
   }
 `;
+export const ContainerSearch = styled.div`
+  border: 1px solid #353535;
+  padding: 20px;
+  border-radius: 8px;
+  width: calc(100% - 350px);
+  margin-bottom: 15px;
+  background: #404040;
+  box-shadow: 0px 0px 10px #000;
+  transition: top 2s ease;
+  position: fixed;
+  top: 4px;
+  animation: ${fadeIn} 1s ease;
+`;
 export const List = styled.div`
   width: 100%;
   display: flex;
@@ -59,6 +94,18 @@ export const List = styled.div`
   justify-content: center;
   text-align: center;
 
+  button {
+  }
+`;
+
+export const FormSearch = styled.form`
+  width: 100%;
+  display: flex;
+
+  transition: 2s;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 
   .search {
     display: flex;

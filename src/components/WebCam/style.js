@@ -2,31 +2,33 @@
 import styled from "styled-components";
 import Webcam from "react-webcam";
 const ContainerItems = styled.div`
-  background-color: #292929;
-  border-radius: 8px;
-  min-width: 650px;
+  background-color: #555555;
+
+  border-radius: .5rem;
+  min-width: 40.625rem;
   display: flex;
-  padding: 8px;
+  padding: .5rem;
   align-items: center;
-  /* height: 150px; */
+  /* height: 9.375rem; */
 `;
 
 const ContainerWebCam = styled.div`
   display: flex;
-  padding: 10px;
-  width: 650px;
+  padding: .625rem;
+  width: 40.625rem;
   justify-content: space-around;
-  /* margin: 1rem 0; */
+  /* margin: 16px 0; */
 `;
 const ButtonCapture = styled.button`
-  background-color: #333;
+  background-color: green;
   color: white !important;
-  width: 120px !important;
-  border: 0.2px solid #4a4646 !important;
-  border-radius: 8px;
+  width: 7.5rem !important;
+  border: .0125rem solid #000 !important;
+  box-shadow: 0 0 10px #000;
+  border-radius: .5rem;
 
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 16px;
 
   &:hover {
     opacity: 0.8;
@@ -42,23 +44,23 @@ const ImageCapture = styled.img`
 `;
 const ButtonOpenCam = styled.button`
   background: transparent;
-  border: 0.2px solid #4a4646 !important;
+  border: .0125rem solid #4a4646 !important;
   color: #808080 !important;
   width: 100%;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 16px;
 `;
 const ButtonCloseCam = styled.button`
   background: transparent;
   color: #ff0000 !important;
-  padding: 0.5rem 1rem;
+  padding: 8px 16px;
   cursor: pointer;
-  width: 30px !important;
-  font-size: 1rem;
+  width: 1.875rem !important;
+  font-size: 16px;
 `;
 const WebcamStyle = styled(Webcam)`
   display: flex;
-  width: 180px;
+  width: 11.25rem;
 `;
 
 export {

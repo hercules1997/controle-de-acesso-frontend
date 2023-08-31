@@ -1,5 +1,10 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from "react";
+
+import avatar1 from "../../../assets/avatar1.jpg";
+import avatar2 from "../../../assets/avatar2.jpg";
+import avatar3 from "../../../assets/avatar3.jpg";
+
 import {
   ButtonFinaly,
   Container,
@@ -21,7 +26,6 @@ export function Status() {
   const closePopup = () => {
     setIsPopupOpen(false);
   };
- 
 
   const handleConfirm = () => {
     // Lógica a ser executada quando o usuário confirma
@@ -46,10 +50,9 @@ export function Status() {
       <ContainerList>
         <List>
           <Image>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_93-Y6mBxJ4jBbxM69Pdrgww5apgF2ZVXnw&usqp=CAU" />
+            <img src={avatar1} />
           </Image>
-          <Description>
-          </Description>
+          <Description>Reginalda Pereira</Description>
           <Date>
             <p>Seg 22 - 13:30h</p>
           </Date>
@@ -61,7 +64,7 @@ export function Status() {
       <ContainerList>
         <List>
           <Image>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUswedX1gmqd6j5eKSWyhmDjtqj86UqVtnlh-k64nikkm99ujh1kMUOMNxcdT-berJUDU&usqp=CAU" />
+            <img src={avatar2} />
           </Image>
           <Description>
             <p>Carlos Antônio</p>
@@ -77,10 +80,10 @@ export function Status() {
       <ContainerList>
         <List>
           <Image>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUswedX1gmqd6j5eKSWyhmDjtqj86UqVtnlh-k64nikkm99ujh1kMUOMNxcdT-berJUDU&usqp=CAU" />
+            <img src={avatar3} />
           </Image>
           <Description>
-            <p>Carlos Antônio</p>
+            <p>Júlia Antônio</p>
           </Description>
           <Date>
             <p>Seg 22 - 13:30h</p>

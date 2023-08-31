@@ -22,13 +22,42 @@ import {
   List,
   InputStyle,
   ButtonStyle,
+  ContainerSearch,
+  FormSearch,
+  ButtonRegisterVisit,
+  PopUpStyle,
 } from "./style";
 
 export function ListPeopleRegister() {
+
   const [isOpen, setIsOpen] = useState(false);
   const [rotationAngle, setRotationAngle] = useState(0);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const [isVisible, setIsVisible] = useState(false);
+
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+    const openPopup = () => {
+      setIsPopupOpen(true);
+    };
+
+    const closePopup = () => {
+      setIsPopupOpen(false);
+    };
+
+    const handleConfirm = () => {
+    //  Lógica a ser executada quando o usuário confirma
+      console.log("Ação confirmada!");
+      closePopup();/// Feche o pop-up após a confirmação
+    };
+
+    const handleCancel = () => {
+    //  Lógica a ser executada quando o usuário cancela
+      console.log("Ação cancelada!");
+      closePopup(); ///Feche o pop-up após o cancelamento
+    };
+
 
   const toggleVisibility = () => {
     setIsVisible(!isVisible);
@@ -43,18 +72,123 @@ export function ListPeopleRegister() {
     rotateComponent();
     toggleVisibility();
   };
+
+  function handleSearch(e) {
+    setSearchTerm(e.target.value);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const content = document.body.innerText;
+    const index = content.indexOf(searchTerm);
+
+    if (index !== -1) {
+      window.scrollTo(+100, index);
+    }
+  }
+
   return (
     <>
+      <PopUpStyle
+        isOpen={isPopupOpen}
+        onClose={closePopup}
+        onConfirm={handleConfirm}
+        onCancel={handleCancel}
+      />
       <Container>
-        <ContainerList>
-          <List>
+        <ContainerSearch>
+          <FormSearch onSubmit={handleSubmit}>
             <div className="search">
               <LabelList>Pesuisar</LabelList>
-              <InputStyle></InputStyle>
-              <ButtonStyle>
+              <InputStyle type="search" onChange={handleSearch}></InputStyle>
+              <ButtonStyle type="submit">
                 <PersonSearchIcon />
               </ButtonStyle>
             </div>
+          </FormSearch>
+        </ContainerSearch>
+
+        <ContainerList>
+          <List>
+            <Image>
+              <img src={avatar2} />
+            </Image>
+            <Description>
+              <p>Levi Antônio de Abreu</p>
+            </Description>
+            <Date>
+              <p>Última visita - 18 de junho de 2022</p>
+            </Date>
+            <ButtonRegisterVisit>Registrar Nova visita</ButtonRegisterVisit>
+
+            <ButtonFinaly>
+              <button>
+                <KeyboardDoubleArrowDownSharpIcon />
+              </button>
+            </ButtonFinaly>
+          </List>
+        </ContainerList>
+
+        <ContainerList>
+          <List>
+            <Image>
+              <img src={avatar2} />
+            </Image>
+            <Description>
+              <p>Bruno Antônio de Abreu</p>
+            </Description>
+            <Date>
+              <p>Última visita - 18 de junho de 2022</p>
+            </Date>
+            <ButtonRegisterVisit>Registrar Nova visita</ButtonRegisterVisit>
+
+            <ButtonFinaly>
+              <button>
+                <KeyboardDoubleArrowDownSharpIcon />
+              </button>
+            </ButtonFinaly>
+          </List>
+        </ContainerList>
+
+        <ContainerList>
+          <List>
+            <Image>
+              <img src={avatar2} />
+            </Image>
+            <Description>
+              <p>João Antônio de Abreu</p>
+            </Description>
+            <Date>
+              <p>Última visita - 18 de junho de 2022</p>
+            </Date>
+            <ButtonRegisterVisit>Registrar Nova visita</ButtonRegisterVisit>
+
+            <ButtonFinaly>
+              <button>
+                <KeyboardDoubleArrowDownSharpIcon />
+              </button>
+            </ButtonFinaly>
+          </List>
+        </ContainerList>
+
+        <ContainerList>
+          <List>
+            <Image>
+              <img src={avatar2} />
+            </Image>
+            <Description>
+              <p>Roberto Antônio de Abreu</p>
+            </Description>
+            <Date>
+              <p>Última visita - 18 de junho de 2022</p>
+            </Date>
+            <ButtonRegisterVisit>Registrar Nova visita</ButtonRegisterVisit>
+            <ButtonFinaly>
+              <button>
+                <KeyboardDoubleArrowDownSharpIcon />
+              </button>
+            </ButtonFinaly>
           </List>
         </ContainerList>
 
@@ -69,6 +203,7 @@ export function ListPeopleRegister() {
             <Date>
               <p>Última visita - 18 de junho de 2022</p>
             </Date>
+            <ButtonRegisterVisit>Registrar Nova visita</ButtonRegisterVisit>
             <ButtonFinaly>
               <button>
                 <KeyboardDoubleArrowDownSharpIcon />
@@ -76,6 +211,7 @@ export function ListPeopleRegister() {
             </ButtonFinaly>
           </List>
         </ContainerList>
+
         <ContainerList>
           <List>
             <Image>
@@ -87,6 +223,8 @@ export function ListPeopleRegister() {
             <Date>
               <p>Última visita - 12 de maio de 2023</p>
             </Date>
+            <ButtonRegisterVisit>Registrar Nova visita</ButtonRegisterVisit>
+
             <ButtonFinaly>
               <button>
                 <KeyboardDoubleArrowDownSharpIcon />
@@ -103,8 +241,12 @@ export function ListPeopleRegister() {
               <p>Reginalda da Misericórdia</p>
             </Description>
             <Date>
-              <p></p>
+              <p>Última visita - 12 de maio de 2023</p>
             </Date>
+            <ButtonRegisterVisit onClick={openPopup}>
+              Registrar Nova visita
+            </ButtonRegisterVisit>
+
             <ButtonFinaly>
               <button
                 onClick={toggleMenu}

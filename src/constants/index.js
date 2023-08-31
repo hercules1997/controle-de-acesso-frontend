@@ -1,8 +1,9 @@
 const paths = {
   Status: "/",
   Cadastro: "/novo-cadastro",
-  Deshboard: "/desh",
-  ListRegisters: "/lista"
+  Login: "/login",
+  ListRegisters: "/lista",
+  Deshboard: "/deshboard"
 };
 
 export default paths;

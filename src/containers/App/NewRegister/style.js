@@ -9,23 +9,43 @@ export const Container = styled.div`
 `;
 
 export const ContainerMaster = styled.div`
+  width: 100%;
+  text-align: start;
   margin-left: 20%;
   h2 {
     margin-bottom: 50px;
+    text-align: center;
+    color: #f1ab00;
   }
 `;
+
 export const InputStyle = styled(Input)`
   border: ${(props) => (props.error ? "2px solid red" : "none")};
+  width: 100%;
 `;
 export const LabelTitle = styled.label`
-  text-align: start;
-  width: 100%;
-  padding-left: 25px;
+  display: flex;
+ 
+
+  left: 0;
+  /* padding-left: 25px; */
   span {
     color: red;
   }
 `;
+export const Cardform = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+`;
+export const Divisor = styled.div`
+  display: flex;
+gap: 20px;
+  width: 100%;
 
+padding: 0;
+margin: 0;
+`;
 export const Items = styled.div`
   display: flex;
   padding: 40px;
@@ -34,10 +54,10 @@ export const Items = styled.div`
     display: flex;
     flex-direction: column;
 
-    background-color: #262624;
+    background-color: #404040;
     padding: 50px;
-    align-items: center;
-    justify-content: space-around;
+    /* align-items: center; */
+    /* justify-content: space-around; */
 
     width: 100%;
     color: #ffff;
@@ -50,7 +70,7 @@ export const Items = styled.div`
   }
 
   button {
-    width: 650px;
+    width: 100%;
     border: none;
 
     font-size: 1.4rem;
@@ -62,7 +82,7 @@ export const PersonIconStyle = styled(PersonIcon)``;
 export const ButtonSubmit = styled(Button)`
   width: 650px;
   border: none;
-  background: #404040;
+  background: #252525;
   font-size: 1.4rem;
   cursor: pointer;
 

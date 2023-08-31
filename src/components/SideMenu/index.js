@@ -42,7 +42,7 @@ export function SideMenu({path}) {
           navigate(paths.Login);
         }}
       >
-        <ListLink style={{ color: "red" }}>
+        <ListLink style={{ color: "#ffc107" }}>
           <LogoutOutlined className="iconLogout" />
           Sair
         </ListLink>

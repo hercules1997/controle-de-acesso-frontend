@@ -1,19 +1,26 @@
 import styled from "styled-components";
 
 export const ComponentInput = styled.input`
-  width: 650px;
+  width: 100%;
   margin: 15px;
-  border: solid 0.5px #444;
+  border: solid 0.5px #505050;
   color: #ffff;
   padding: 10px;
-  background-color: #292929;
-  box-shadow: 0 0 7px #000;
+  background-color: #555555;
+  box-shadow: 0 0 5px #202020;
   border-radius: 8px;
   outline: none;
+
+  &::placeholder {
+    color: #a9a9a9;
+    font-style: italic;
+  }
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
   }
   &:focus {
-    border: 1px solid #f5ae33;
+    border: 1px solid #f0ae10;
+    background: #a8a8a8;
+    color: #202020;
   }
 `;

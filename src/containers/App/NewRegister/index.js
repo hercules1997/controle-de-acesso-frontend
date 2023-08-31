@@ -9,6 +9,8 @@ import {
   ButtonSubmit,
   Container,
   ContainerMaster,
+  Divisor,
+  Cardform,
   InputStyle,
   Items,
   LabelTitle,
@@ -87,33 +89,31 @@ export function NewRegister() {
               error={errors.name?.message}
             ></InputStyle>
             <ErrorMessage>{errors.name?.message}</ErrorMessage>
-            <LabelTitle>
-              RG <span>*</span>
-            </LabelTitle>
-            <Input
-              type="number"
-              {...register("rg")}
-              placeholder="Ex: 24787158-8"
-            ></Input>
-            <ErrorMessage>{errors.rg?.message}</ErrorMessage>
-            <LabelTitle>
-              CPF <span>*</span>
-            </LabelTitle>
-            <Input
-              type="number"
-              placeholder="Ex: 455.555.555-77"
-              {...register("cpf")}
-            ></Input>
-            <ErrorMessage>{errors.cpf?.message}</ErrorMessage>
-            <LabelTitle>
-              CEP <span>*</span>
-            </LabelTitle>
-            <Input
-              type="number"
-              {...register("cep")}
-              placeholder="Ex: 02222-555"
-            ></Input>
-            <ErrorMessage>{errors.cep?.message}</ErrorMessage>
+            <Divisor>
+              <Cardform>
+                <LabelTitle className="Label_Format" style={{ width: "auto" }}>
+                  RG <span>*</span>
+                </LabelTitle>
+                <Input
+                  className="Label_Format"
+                  type="number"
+                  {...register("rg")}
+                  placeholder="Ex: 24787158-8"
+                ></Input>
+                <ErrorMessage>{errors.rg?.message}</ErrorMessage>
+              </Cardform>
+              <Cardform>
+                <LabelTitle className="Label_Format" style={{ width: "auto" }}>
+                  CPF <span>*</span>
+                </LabelTitle>
+                <Input
+                  type="number"
+                  placeholder="Ex: 455.555.555-77"
+                  {...register("cpf")}
+                ></Input>
+                <ErrorMessage>{errors.cpf?.message}</ErrorMessage>
+              </Cardform>
+            </Divisor>
             <LabelTitle>
               Logadouro <span>*</span>
             </LabelTitle>
@@ -123,6 +123,31 @@ export function NewRegister() {
               placeholder="Ex: Rua Tadeu de Brito"
             ></Input>
             <ErrorMessage>{errors.address?.message}</ErrorMessage>
+            <Divisor>
+              <Cardform>
+                <LabelTitle>
+                  n° <span>*</span>
+                </LabelTitle>
+                <Input
+                  type="text"
+                  {...register("number")}
+                  placeholder="Ex: 254"
+                ></Input>
+                <ErrorMessage>{errors.cep?.message}</ErrorMessage>
+              </Cardform>
+              <Cardform>
+                <LabelTitle className="Label_Format">
+                  CEP <span>*</span>
+                </LabelTitle>
+                <Input
+                  type="number"
+                  {...register("cep")}
+                  placeholder="Ex: 02222-555"
+                ></Input>
+                <ErrorMessage>{errors.cep?.message}</ErrorMessage>
+              </Cardform>
+            </Divisor>
+
             <LabelTitle>
               Tel <span>*</span>
             </LabelTitle>
