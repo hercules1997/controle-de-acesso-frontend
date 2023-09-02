@@ -4,6 +4,7 @@ import { Button } from "../../../components";
 import { Input } from "../../../components/Input";
 export const Container = styled.div`
   display: flex;
+  width: 100%;
   justify-content: center;
   align-items: center;
 `;
@@ -11,7 +12,7 @@ export const Container = styled.div`
 export const ContainerMaster = styled.div`
   width: 100%;
   text-align: start;
-  margin-left: 20%;
+  
   h2 {
     margin-bottom: 50px;
     text-align: center;

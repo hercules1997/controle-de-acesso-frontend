@@ -15,8 +15,8 @@ const ContainerItems = styled.div`
 const ContainerWebCam = styled.div`
   display: flex;
   padding: .625rem;
-  width: 40.625rem;
-  justify-content: space-around;
+  width: 100%;
+  justify-content: space-evenly;
   /* margin: 16px 0; */
 `;
 const ButtonCapture = styled.button`

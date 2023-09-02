@@ -80,7 +80,7 @@ export function NewRegister() {
           <form onSubmit={handleSubmit(onSubmit)}>
             <h2>Novo Cadastro de Visitante</h2>
             <LabelTitle>
-              Nome <span>*</span>
+              Nome completo <span> *</span>
             </LabelTitle>
             <InputStyle
               type="text"
@@ -112,6 +112,17 @@ export function NewRegister() {
                   {...register("cpf")}
                 ></Input>
                 <ErrorMessage>{errors.cpf?.message}</ErrorMessage>
+              </Cardform>
+              <Cardform>
+                <LabelTitle>
+                  Tel <span>*</span>
+                </LabelTitle>
+                <Input
+                  type="number"
+                  {...register("phone")}
+                  placeholder="(11) 958478801"
+                ></Input>
+                <ErrorMessage>{errors.phone?.message}</ErrorMessage>
               </Cardform>
             </Divisor>
             <LabelTitle>
@@ -147,36 +158,33 @@ export function NewRegister() {
                 <ErrorMessage>{errors.cep?.message}</ErrorMessage>
               </Cardform>
             </Divisor>
+            <Divisor>
+              <Cardform>
+                <LabelTitle>
+                  Nome da mãe<span>*</span>
+                </LabelTitle>
+                <InputStyle
+                  type="text"
+                  {...register("name")}
+                  placeholder="Ex: Marta Antônia"
+                  error={errors.name?.message}
+                ></InputStyle>
+                <ErrorMessage>{errors.name?.message}</ErrorMessage>
+              </Cardform>
+              <Cardform>
+                <LabelTitle>
+                  Nome do pai<span>*</span>
+                </LabelTitle>
+                <InputStyle
+                  type="text"
+                  {...register("name")}
+                  placeholder="Ex: Pedro Antônio"
+                  error={errors.name?.message}
+                ></InputStyle>
+                <ErrorMessage>{errors.name?.message}</ErrorMessage>
+              </Cardform>
+            </Divisor>
 
-            <LabelTitle>
-              Tel <span>*</span>
-            </LabelTitle>
-            <Input
-              type="number"
-              {...register("phone")}
-              placeholder="(11) 958478801"
-            ></Input>
-            <ErrorMessage>{errors.phone?.message}</ErrorMessage>
-            <LabelTitle>
-              Nome da mãe<span>*</span>
-            </LabelTitle>
-            <InputStyle
-              type="text"
-              {...register("name")}
-              placeholder="Ex: Marta Antônia"
-              error={errors.name?.message}
-            ></InputStyle>
-            <ErrorMessage>{errors.name?.message}</ErrorMessage>
-            <LabelTitle>
-              Nome do pai<span>*</span>
-            </LabelTitle>
-            <InputStyle
-              type="text"
-              {...register("name")}
-              placeholder="Ex: Pedro Antônio"
-              error={errors.name?.message}
-            ></InputStyle>
-            <ErrorMessage>{errors.name?.message}</ErrorMessage>
             <LabelTitle>
               Foto <span>*</span>
             </LabelTitle>
