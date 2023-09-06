@@ -10,6 +10,7 @@ function AllRoutes() {
     <Router>
       <Routes>
         <Route path={paths.Login} element={<Login path={paths.Login} />} />
+        
         <Route path={paths.Status} element={<App path={paths.Status} />} />
         <Route
           path={paths.ListRegisters}

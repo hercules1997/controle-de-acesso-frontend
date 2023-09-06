@@ -2,13 +2,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-// import { toast } from "react-toastify";
 import * as Yup from "yup";
 
 import { ErrorMessage } from "../../../components";
 import paths from "../../../constants";
-// import { useUser } from "../../hooks/UserContext";
-// import api from "../../services/api";
+
 import {
   Container,
   ContainerItens,
@@ -19,13 +17,16 @@ import {
   All,
   InputStyle,
 } from "./style";
+import { toast } from "react-toastify";
+import api from "../../../services/api";
+import { useUser } from "../../../hooks/UserContext";
 
 /*
 ESTRUTURA DE LOGIN
 */
 
 export function Login() {
-  //   const { putUserData } = useUser();
+  const { putUserData } = useUser();
   const navigate = useNavigate();
 
   /*
@@ -34,9 +35,11 @@ export function Login() {
 
   //TODO Colocar o ".required("Usuário é obrigatório")" e ".required("Senha obrigatória")"
   const schema = Yup.object().shape({
-    user: Yup.string(),
+    usuario: Yup.string(),
+    // .required("Usuário obrigatório"),
     password: Yup.string()
-    .min(10, "Senha deve ter no mínimo 10 digitos"),
+      // .required("Senha obrigatória")
+      .min(6, "Senha deve ter no mínimo 6 digitos"),
   });
 
   const {
@@ -48,9 +51,25 @@ export function Login() {
   /*
    CHAMADA A API E REALIZA O ACESSO
    */
-  const onSubmit = () => {
-    navigate(paths.ListRegisters);
-    setTimeout(() => {}, 1200);
+  const onSubmit = async (clientData) => {
+    const { data } = await toast.promise(
+      api.post("sessions", {
+        usuario: clientData.usuario,
+        password: clientData.password,
+      }),
+      {
+        pending: "Verificando seus dados...",
+        success: "Seja bem-vindo(a)!",
+        error: "Dados incorretos",
+      }
+    );
+    putUserData(data);
+
+    setTimeout(() => {
+      navigate(paths.ListRegisters);
+    }, 1000);
+    // navigate(paths.ListRegisters);
+    // setTimeout(() => {}, 1200);
   };
 
   return (
@@ -69,12 +88,11 @@ export function Login() {
                 <Label>Usuário</Label>
                 <InputStyle
                   type="text"
-                  {...register("user")}
-           
-                  error={errors.user?.message}
+                  {...register("usuario")}
+                  error={errors.usuario?.message}
                 />
               </div>
-              <ErrorMessage>{errors.user?.message}</ErrorMessage>
+              <ErrorMessage>{errors.usuario?.message}</ErrorMessage>
               <div>
                 {/* SENHA */}
                 <Label>Senha</Label>
@@ -89,8 +107,6 @@ export function Login() {
               {/* BOTÃO DE ACESSO */}
 
               <ButtonStyle type="submit">Entrar</ButtonStyle>
-
-              {/* BOTÃO DE CADASTRAR */}
             </form>
           </ContainerItens>
         </Container>

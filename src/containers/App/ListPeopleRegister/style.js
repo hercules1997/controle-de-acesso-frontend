@@ -157,7 +157,7 @@ export const ButtonFinaly = styled.div`
     transition: 1s;
 
     &:hover {
-      background: #333;
+      color: ${colors.text};
     }
     &:active {
       opacity: 0.5;

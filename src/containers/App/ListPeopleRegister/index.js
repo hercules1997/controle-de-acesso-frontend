@@ -1,12 +1,8 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import KeyboardDoubleArrowDownSharpIcon from "@mui/icons-material/KeyboardDoubleArrowDownSharp";
 import PersonSearchIcon from "@mui/icons-material/PersonSearch";
-
-import avatar1 from "../../../assets/avatar1.jpg";
-import avatar2 from "../../../assets/avatar2.jpg";
-import avatar3 from "../../../assets/avatar3.jpg";
-
+import formatDate from "../../../utils/formatDate";
 import {
   ButtonFinaly,
   CardContainer,
@@ -27,50 +23,61 @@ import {
   ButtonRegisterVisit,
   PopUpStyle,
 } from "./style";
+import api from "../../../services/api";
+import { useNavigate } from "react-router-dom";
+// import { toast } from "react-toastify";
+import paths from "../../../constants";
 
 export function ListPeopleRegister() {
-
-  const [isOpen, setIsOpen] = useState(false);
-  const [rotationAngle, setRotationAngle] = useState(0);
+  const [rotationAngles, setRotationAngles] = useState({});
   const [searchTerm, setSearchTerm] = useState("");
+  const [openStates, setOpenStates] = useState({});
 
-  const [isVisible, setIsVisible] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-    const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [people, setPeople] = useState();
+  const { push } = useNavigate();
 
-    const openPopup = () => {
-      setIsPopupOpen(true);
-    };
+  const toggleMenu = (id) => {
+    setOpenStates((prevState) => ({
+      ...prevState,
+      [id]: !prevState[id],
+    }));
 
-    const closePopup = () => {
-      setIsPopupOpen(false);
-    };
+    setRotationAngles((prevState) => ({
+      ...prevState,
+      [id]: prevState[id] === 180 ? 0 : 180,
+    }));
+  };
 
-    const handleConfirm = () => {
+  useEffect(() => {
+    async function loadOrders() {
+      const { data } = await api.get("visits");
+
+      setPeople(data);
+    }
+
+    loadOrders();
+  }, [people]);
+
+  function editProduct(product) {
+    push(paths.Cadastro, { product });
+  }
+
+  const closePopup = () => {
+    setIsPopupOpen(false);
+  };
+
+  const handleConfirm = () => {
     //  Lógica a ser executada quando o usuário confirma
-      console.log("Ação confirmada!");
-      closePopup();/// Feche o pop-up após a confirmação
-    };
+    console.log("Ação confirmada!");
+    closePopup(); /// Feche o pop-up após a confirmação
+  };
 
-    const handleCancel = () => {
+  const handleCancel = () => {
     //  Lógica a ser executada quando o usuário cancela
-      console.log("Ação cancelada!");
-      closePopup(); ///Feche o pop-up após o cancelamento
-    };
-
-
-  const toggleVisibility = () => {
-    setIsVisible(!isVisible);
-  };
-
-  const rotateComponent = () => {
-    setRotationAngle(rotationAngle + 180);
-  };
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-    rotateComponent();
-    toggleVisibility();
+    console.log("Ação cancelada!");
+    closePopup(); ///Feche o pop-up após o cancelamento
   };
 
   function handleSearch(e) {
@@ -96,6 +103,7 @@ export function ListPeopleRegister() {
         onConfirm={handleConfirm}
         onCancel={handleCancel}
       />
+
       <Container>
         <ContainerSearch>
           <FormSearch onSubmit={handleSubmit}>
@@ -109,199 +117,103 @@ export function ListPeopleRegister() {
           </FormSearch>
         </ContainerSearch>
 
-        <ContainerList>
-          <List>
-            <Image>
-              <img src={avatar2} />
-            </Image>
-            <Description>
-              <p>Levi Antônio de Abreu</p>
-            </Description>
-            <Date>
-              <p>Última visita - 18 de junho de 2022</p>
-            </Date>
-            <ButtonRegisterVisit>Registrar Nova visita</ButtonRegisterVisit>
+        {people &&
+          people.map((prod) => (
+            <ContainerList key={prod.id}>
+              <List>
+                <Image>
+                  <img src={prod.url} />
+                </Image>
+                <Description>
+                  <p>{prod.name}</p>
+                </Description>
+                <Date>
+                  <p>{formatDate(prod.updatedAt)}</p>
+                </Date>
+                <ButtonRegisterVisit onClick={editProduct}>
+                  Registrar Nova visita
+                </ButtonRegisterVisit>
 
-            <ButtonFinaly>
-              <button>
-                <KeyboardDoubleArrowDownSharpIcon />
-              </button>
-            </ButtonFinaly>
-          </List>
-        </ContainerList>
-
-        <ContainerList>
-          <List>
-            <Image>
-              <img src={avatar2} />
-            </Image>
-            <Description>
-              <p>Bruno Antônio de Abreu</p>
-            </Description>
-            <Date>
-              <p>Última visita - 18 de junho de 2022</p>
-            </Date>
-            <ButtonRegisterVisit>Registrar Nova visita</ButtonRegisterVisit>
-
-            <ButtonFinaly>
-              <button>
-                <KeyboardDoubleArrowDownSharpIcon />
-              </button>
-            </ButtonFinaly>
-          </List>
-        </ContainerList>
-
-        <ContainerList>
-          <List>
-            <Image>
-              <img src={avatar2} />
-            </Image>
-            <Description>
-              <p>João Antônio de Abreu</p>
-            </Description>
-            <Date>
-              <p>Última visita - 18 de junho de 2022</p>
-            </Date>
-            <ButtonRegisterVisit>Registrar Nova visita</ButtonRegisterVisit>
-
-            <ButtonFinaly>
-              <button>
-                <KeyboardDoubleArrowDownSharpIcon />
-              </button>
-            </ButtonFinaly>
-          </List>
-        </ContainerList>
-
-        <ContainerList>
-          <List>
-            <Image>
-              <img src={avatar2} />
-            </Image>
-            <Description>
-              <p>Roberto Antônio de Abreu</p>
-            </Description>
-            <Date>
-              <p>Última visita - 18 de junho de 2022</p>
-            </Date>
-            <ButtonRegisterVisit>Registrar Nova visita</ButtonRegisterVisit>
-            <ButtonFinaly>
-              <button>
-                <KeyboardDoubleArrowDownSharpIcon />
-              </button>
-            </ButtonFinaly>
-          </List>
-        </ContainerList>
-
-        <ContainerList>
-          <List>
-            <Image>
-              <img src={avatar2} />
-            </Image>
-            <Description>
-              <p>Carlos Antônio de Abreu</p>
-            </Description>
-            <Date>
-              <p>Última visita - 18 de junho de 2022</p>
-            </Date>
-            <ButtonRegisterVisit>Registrar Nova visita</ButtonRegisterVisit>
-            <ButtonFinaly>
-              <button>
-                <KeyboardDoubleArrowDownSharpIcon />
-              </button>
-            </ButtonFinaly>
-          </List>
-        </ContainerList>
-
-        <ContainerList>
-          <List>
-            <Image>
-              <img src={avatar1} />
-            </Image>
-            <Description>
-              <p>Júlia Massaratti Tomaski</p>
-            </Description>
-            <Date>
-              <p>Última visita - 12 de maio de 2023</p>
-            </Date>
-            <ButtonRegisterVisit>Registrar Nova visita</ButtonRegisterVisit>
-
-            <ButtonFinaly>
-              <button>
-                <KeyboardDoubleArrowDownSharpIcon />
-              </button>
-            </ButtonFinaly>
-          </List>
-        </ContainerList>
-        <ContainerList>
-          <List>
-            <Image>
-              <img src={avatar3} />
-            </Image>
-            <Description>
-              <p>Reginalda da Misericórdia</p>
-            </Description>
-            <Date>
-              <p>Última visita - 12 de maio de 2023</p>
-            </Date>
-            <ButtonRegisterVisit onClick={openPopup}>
-              Registrar Nova visita
-            </ButtonRegisterVisit>
-
-            <ButtonFinaly>
-              <button
-                onClick={toggleMenu}
-                style={{ transform: `rotate(${rotationAngle}deg)` }}
+                <ButtonFinaly>
+                  <button
+                    onClick={() => toggleMenu(prod.id)}
+                    style={{
+                      transform: `rotate(${rotationAngles[prod.id]}deg)`,
+                    }}
+                  >
+                    <KeyboardDoubleArrowDownSharpIcon />
+                  </button>
+                </ButtonFinaly>
+              </List>
+              <CardContainer
+                isVisible={openStates[prod.id]}
+                className={`menu ${openStates[prod.id] ? "open" : ""}`}
               >
-                <KeyboardDoubleArrowDownSharpIcon />
-              </button>
-            </ButtonFinaly>
-          </List>
-          <CardContainer isVisible className={`menu ${isOpen ? "open" : ""}`}>
-            <CardListPeople>
-              <div>
-                <LabelList>Nome: </LabelList>
-                <InforList>Reginalda da Misericórdia </InforList>
-              </div>
-              <div>
-                <LabelList>RG: </LabelList>
-                <InforList>Reginalda da Misericórdia </InforList>
-              </div>
-              <div>
-                <LabelList>CPF: </LabelList>
-                <InforList>410.410.410-44 </InforList>
-              </div>
-              <div>
-                <LabelList>Endereço: </LabelList>
-                <InforList>Rua Barão Paulista </InforList>
-              </div>
-              <div>
-                <LabelList>n°: </LabelList>
-                <InforList>365 </InforList>
-              </div>
-              <div>
-                <LabelList>CEP: </LabelList>
-                <InforList>05022-505</InforList>
-              </div>
-              <div>
-                <LabelList>Nome da mãe: </LabelList>
-                <InforList>Juventina da Misericórdia </InforList>
-              </div>
-              <div>
-                <LabelList>Nome do pai: </LabelList>
-                <InforList>Tomás da Misericórdia</InforList>
-              </div>
-            </CardListPeople>
-            <CardHistory>
-              <span>Hitórico de visitas</span>
+                <CardListPeople>
+                  <div>
+                    <LabelList>Nome: </LabelList>
+                    <InforList>{prod.name} </InforList>
+                  </div>
+                  <div>
+                    <LabelList>RG: </LabelList>
+                    <InforList>{prod.rg}</InforList>
+                  </div>
+                  <div>
+                    <LabelList>CPF: </LabelList>
+                    <InforList>{prod.cpf}</InforList>
+                  </div>
+                  <div>
+                    <LabelList>Endereço: </LabelList>
+                    <InforList>{prod.address} </InforList>
+                  </div>
+                  <div>
+                    <LabelList>n°: </LabelList>
+                    <InforList>365 </InforList>
+                  </div>
+                  <div>
+                    <LabelList>CEP: </LabelList>
+                    <InforList>05022-505</InforList>
+                  </div>
+                  <div>
+                    <LabelList>Nome da mãe: </LabelList>
+                    <InforList>{prod.namemother}</InforList>
+                  </div>
+                  <div>
+                    <LabelList>Nome do pai: </LabelList>
+                    <InforList>{prod.namefather}</InforList>
+                  </div>
+                  <div>
+                    <LabelList>Veículo: </LabelList>
+                    <InforList>{prod.Vehicle}</InforList>
+                  </div>
+                  <div>
+                    <LabelList>Modelo: </LabelList>
+                    <InforList>{prod.model}</InforList>
+                  </div>
+                  <div>
+                    <LabelList>Marca: </LabelList>
+                    <InforList>{prod.brand}</InforList>
+                  </div>
+                  <div>
+                    <LabelList>Cor: </LabelList>
+                    <InforList>{prod.color}</InforList>
+                  </div>
+                  <div>
+                    <LabelList>Crachá: </LabelList>
+                    <InforList>{prod.spat}</InforList>
+                  </div>
+                </CardListPeople>
+                <CardHistory>
+                  <span>Hitórico de visitas</span>
 
-              <p> - 10 jan 23</p>
-              <p> - 2 dez 22</p>
-              <p> - 10 out 22</p>
-              <p> - 8 fev 22</p>
-              <p> - 25 nov 21</p>
-            </CardHistory>
-          </CardContainer>
-        </ContainerList>
+                  <p>{formatDate(prod.createdAt)}</p>
+                  <p>{formatDate(prod.updatedAt)}</p>
+                  <p>{formatDate(prod.createdAt)}</p>
+                  <p>{formatDate(prod.createdAt)}</p>
+                </CardHistory>
+              </CardContainer>
+            </ContainerList>
+          ))}
       </Container>
     </>
   );
